@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Donor Profile</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Donor Profile</h1>
+        <div th:if="${donor != null}">
+            <h2 th:text="${donor.name}">Donor Name</h2>
+            <p><strong>Email:</strong> <span th:text="${donor.email}">email@example.com</span></p>
+            <p><strong>Phone:</strong> <span th:text="${donor.phone}">123-456-7890</span></p>
+            <p><strong>Blood Type:</strong> <span th:text="${donor.bloodType}">O+</span></p>
+            <p><strong>Last Donation Date:</strong> <span th:text="${donor.lastDonationDate}">2023-01-01</span></p>
+            <a th:href="@{/donor/dashboard}" class="btn">Back to Dashboard</a>
+            <a th:href="@{/donor/edit/{id}(id=${donor.id})}" class="btn">Edit Profile</a>
+        </div>
+        <div th:if="${donor == null}">
+            <p>No donor information available.</p>
+        </div>
+    </div>
+</body>
+</html>

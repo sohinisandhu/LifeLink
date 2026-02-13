@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Blood Bank Management System</h1>
+        <nav>
+            <ul>
+                <li><a th:href="@{/admin/dashboard}">Dashboard</a></li>
+                <li><a th:href="@{/admin/inventory}">Blood Inventory</a></li>
+                <li><a th:href="@{/logout}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Admin Dashboard</h2>
+        <section>
+            <h3>Donor Management</h3>
+            <p>Manage registered donors and their information.</p>
+            <a th:href="@{/admin/donors}">View Donors</a>
+        </section>
+        <section>
+            <h3>Blood Inventory Management</h3>
+            <p>Manage blood inventory records.</p>
+            <a th:href="@{/admin/inventory}">View Inventory</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Blood Bank Management System</p>
+    </footer>
+</body>
+</html>

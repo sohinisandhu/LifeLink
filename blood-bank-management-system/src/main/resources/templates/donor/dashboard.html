@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Donor Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Blood Bank Management System</h1>
+        <nav>
+            <ul>
+                <li><a th:href="@{/donor/profile}">Profile</a></li>
+                <li><a th:href="@{/logout}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Your Dashboard</h2>
+        <section>
+            <h3>Your Donations</h3>
+            <p>Here you can view your donation history and upcoming donation events.</p>
+            <!-- Add logic to display donor's donation history -->
+        </section>
+        <section>
+            <h3>Upcoming Donation Events</h3>
+            <p>Stay updated with the upcoming blood donation events in your area.</p>
+            <!-- Add logic to display upcoming donation events -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Blood Bank Management System</p>
+    </footer>
+</body>
+</html>

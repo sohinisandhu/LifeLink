@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Page Title</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+     <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: flex-start; gap: 50px; padding-top: 50px; }
+        .container { border: 1px solid #ccc; padding: 20px; border-radius: 8px; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        th, td { border: 1px solid #dddddd; text-align: left; padding: 8px; }
+        th { background-color: #f2f2f2; }
+        form div { margin-bottom: 10px; }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <a th:href="@{/donors/list}">Donor Management</a>
+    <a th:href="@{/recipients/list}">Recipient Requests</a>
+</nav>
+
+<h1>Admin Dashboard</h1>
+
+<div class="container">
+    <h2>Current Blood Inventory</h2>
+    <div th:if="${inventory.empty}">
+        <p>Inventory is currently empty.</p>
+    </div>
+    <table th:if="${!inventory.empty}">
+        <thead>
+        <tr>
+            <th>Blood Group</th>
+            <th>Units Available</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="stock : ${inventory}">
+            <td th:text="${stock.bloodGroup}">O+</td>
+            <td th:text="${stock.unitsAvailable}">10</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="container">
+    <h2>Update Stock</h2>
+    <form th:action="@{/admin/inventory/update}" method="post">
+        <div>
+            <label for="bloodGroup">Blood Group:</label>
+            <input type="text" id="bloodGroup" name="bloodGroup" placeholder="e.g., A+" required />
+        </div>
+        <div>
+            <label for="units">Units to Add/Remove:</label>
+            <input type="number" id="units" name="units" placeholder="e.g., 10 or -5" required />
+        </div>
+        <div>
+            <button type="submit">Update Inventory</button>
+        </div>
+    </form>
+</div>
+
+<form th:action="@{/logout}" method="post">
+    <button type="submit">Logout</button>
+</form>
+
+</body>
+</html>

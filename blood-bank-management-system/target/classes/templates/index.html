@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Blood Bank Management System</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Blood Bank Management System</h1>
+        <nav>
+            <ul>
+                <li><a th:href="@{/auth/login}">Login</a></li>
+                <li><a th:href="@{/auth/register}">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>About Us</h2>
+            <p>We are dedicated to saving lives by connecting blood donors with those in need.</p>
+        </section>
+        <section>
+            <h2>Get Involved</h2>
+            <p>Join us in our mission to provide essential blood supplies to hospitals and clinics.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Blood Bank Management System</p>
+    </footer>
+</body>
+</html>

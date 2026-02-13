@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Request Blood</title>
+</head>
+<body>
+<h1>New Blood Request Form</h1>
+
+<form th:action="@{/recipients/save}" th:object="${recipient}" method="post">
+    <div>
+        <label for="name">Patient Name:</label>
+        <input type="text" id="name" th:field="*{name}" required />
+    </div>
+    <div>
+        <label for="bloodType">Required Blood Type:</label>
+        <input type="text" id="bloodType" th:field="*{bloodType}" required />
+    </div>
+    <div>
+        <label for="requiredUnits">Units Required:</label>
+        <input type="number" id="requiredUnits" th:field="*{requiredUnits}" required />
+    </div>
+    <div>
+        <label for="hospitalName">Hospital Name:</label>
+        <input type="text" id="hospitalName" th:field="*{hospitalName}" required />
+    </div>
+    <div>
+        <label for="contactNumber">Contact Number:</label>
+        <input type="text" id="contactNumber" th:field="*{contactNumber}" required />
+    </div>
+    <div>
+        <button type="submit">Submit Request</button>
+    </div>
+</form>
+
+<a th:href="@{/recipients/list}">Back to Request List</a>
+</body>
+</html>

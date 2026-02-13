@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipient Request List</title>
+    <style>
+        body { font-family: sans-serif; }
+        table { border-collapse: collapse; width: 80%; margin: 20px 0; }
+        th, td { border: 1px solid #dddddd; text-align: left; padding: 8px; }
+        th { background-color: #f2f2f2; }
+        .action-links a { margin-right: 10px; }
+        .add-button { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+<h1>Blood Request Dashboard</h1>
+
+<div class="add-button">
+    <a th:href="@{/recipients/request}">Create New Blood Request</a>
+</div>
+
+<div th:if="${recipients.empty}">
+    <p>No active blood requests found.</p>
+</div>
+
+<table th:if="${!recipients.empty}">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Blood Type</th>
+        <th>Hospital</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="recipient : ${recipients}">
+        <td th:text="${recipient.id}">1</td>
+        <td th:text="${recipient.name}">Jane Smith</td>
+        <td th:text="${recipient.bloodType}">A-</td>
+        <td th:text="${recipient.hospitalName}">City Hospital</td>
+        <td th:text="${recipient.status}">Pending</td>
+        <td class="action-links">
+            <a th:href="@{/recipients/delete/{id}(id=${recipient.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<p><a th:href="@{/donors/list}">Go to Donor Management</a></p>
+
+</body>
+</html>
